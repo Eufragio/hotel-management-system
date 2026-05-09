@@ -1,21 +1,33 @@
-# Hotel Management System — PMS API
+# Hotel Management System — PMS Full Stack
 
-API REST para gestión hotelera (Property Management System) construida con Clean Architecture y CQRS. Diseñada para integrarse con un frontend React independiente.
+Sistema completo de gestión hotelera (Property Management System) con backend ASP.NET Core 10 y frontend React + TypeScript, construido con Clean Architecture y CQRS.
 
 ## Stack Tecnológico
 
+### Backend
 | Capa | Tecnología |
 |------|-----------|
 | Framework | ASP.NET Core 10 Web API |
-| Arquitectura | Clean Architecture + CQRS (MediatR) |
+| Arquitectura | Clean Architecture + CQRS (MediatR 14) |
 | ORM | Entity Framework Core 10 + Dapper |
 | Base de datos | SQL Server |
 | Autenticación | JWT Bearer + ASP.NET Core Identity |
 | Tiempo real | SignalR |
-| Email | MailKit (templates HTML) |
-| Mapeo | AutoMapper |
-| Validación | FluentValidation |
+| Email | MailKit 4.14 (templates HTML) |
+| Mapeo | AutoMapper 12 |
+| Validación | FluentValidation 12 |
 | Testing | xUnit + Moq + FluentAssertions |
+
+### Frontend
+| Capa | Tecnología |
+|------|-----------|
+| Framework | React 18 + TypeScript |
+| Build tool | Vite |
+| Estilos | Tailwind CSS |
+| Estado | React Query (TanStack) |
+| Gráficos | Recharts |
+| i18n | Español / English |
+| Exportación | PDF + Excel |
 
 ## Funcionalidades
 
@@ -57,7 +69,8 @@ src/
 ├── HotelSystem.Domain/          # Entidades, enums, interfaces de repositorio
 ├── HotelSystem.Application/     # CQRS (Commands/Queries/Handlers), DTOs, AutoMapper
 ├── HotelSystem.Infrastructure/  # EF Core, Dapper, repos, Auth/Email/Audit/Dashboard services
-└── HotelSystem.API/             # Controllers REST + NotificationHub (SignalR)
+├── HotelSystem.API/             # Controllers REST + NotificationHub (SignalR)
+└── HotelSystem.Web/             # Frontend React + TypeScript + Vite + Tailwind
 
 tests/
 └── HotelSystem.UnitTests/       # xUnit + Moq + FluentAssertions
@@ -114,7 +127,13 @@ Controller → MediatR (Command/Query) → Handler → Service/Repository → EF
    dotnet run
    ```
 
-La API corre en `https://localhost:5001`. El frontend React debe correr en `http://localhost:5173` (configurado en CORS).
+La API corre en `https://localhost:5001`. Para el frontend React:
+```bash
+cd src/HotelSystem.Web
+npm install
+npm run dev
+# Disponible en http://localhost:5173
+```
 
 ### Credenciales por defecto
 | Campo | Valor |
