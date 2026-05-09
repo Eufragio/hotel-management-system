@@ -122,6 +122,8 @@ namespace HotelSystem.Infrastructure.Services
             var totalRooms = rooms.Count;
             var occupiedRooms = rooms.Count(r => r.Status == RoomStatus.Occupied);
             var availableRooms = rooms.Count(r => r.Status == RoomStatus.Available);
+            var cleaningRooms = rooms.Count(r => r.Status == RoomStatus.Cleaning);
+            var maintenanceRooms = rooms.Count(r => r.Status == RoomStatus.Maintenance);
 
             var reservations = await _context.Reservations
                 .Include(r => r.Guest)
