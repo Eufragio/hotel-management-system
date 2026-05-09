@@ -158,7 +158,17 @@ GET    /api/audit
 
 ## Capturas de Pantalla
 
-> *(Agregar capturas del frontend React integrado)*
+### Dashboard React — KPIs y métricas
+![Dashboard](docs/screenshots/Dashboard%20React.png)
+
+### Habitaciones — Estado en tiempo real
+![Habitaciones](docs/screenshots/Listado%20de%20Habitaciones.png)
+
+### Recepción — Check-in / Check-out
+![Recepcion](docs/screenshots/Recepcion.png)
+
+### Reservas
+![Reservas](docs/screenshots/Reservas.png)
 
 ## Licencia
 
